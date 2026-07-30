@@ -1,0 +1,13 @@
+[
+  {
+    "results": [
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "service_tier": "incentivized-tier",
+        "input_tokens": 1000,
+        "input_cached_tokens": 200,
+        "output_tokens": 100
+      }
+    ]
+  }
+]

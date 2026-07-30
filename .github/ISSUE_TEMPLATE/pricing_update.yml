@@ -1,0 +1,16 @@
+name: Model or pricing update
+description: 更新模型資格或價格
+labels: ["pricing"]
+body:
+  - type: input
+    id: model
+    attributes: { label: 模型名稱 }
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes: { label: OpenAI 官方來源 URL }
+    validations: { required: true }
+  - type: textarea
+    id: pricing
+    attributes: { label: Input / Cached Input / Output 價格 }
+    validations: { required: true }
