@@ -16,7 +16,7 @@ jobs:
         run: pyinstaller --noconfirm --clean --onefile --name OpenAI-Free-Credit-Tracker --paths src --add-data "web;web" --add-data "data;data" src/quota_monitor/app.py
       - shell: pwsh
         run: Get-FileHash dist/OpenAI-Free-Credit-Tracker.exe -Algorithm SHA256 | ForEach-Object { "$($_.Hash)  OpenAI-Free-Credit-Tracker.exe" } | Set-Content dist/SHA256SUMS.txt
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           files: |
             dist/OpenAI-Free-Credit-Tracker.exe
