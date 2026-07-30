@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI Free Credit Tracker</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main class="container">
+    <header><h1>OpenAI 免費額度監控</h1><p>本機優先，主圖只顯示已確認的免費 Token 流量。</p></header>
+    <section class="toolbar card">
+      <input id="key" type="password" placeholder="sk-admin-..." autocomplete="off">
+      <button id="update">更新今日資料</button>
+      <button id="toggle" class="secondary">顯示／隱藏</button>
+      <span id="status">尚未查詢</span>
+    </section>
+    <section id="quotaCards" class="grid"></section>
+    <section class="card"><h2>輔助資訊</h2><div class="metrics"><div><small>標準原價估算</small><b id="listPrice">US$0.0000</b></div><div><small>OpenAI 實際成本</small><b id="actualCost">US$0.0000</b></div><div><small>未標示免費 Token</small><b id="otherTokens">0</b></div></div><p id="costNote"></p></section>
+    <section class="grid"><div class="card"><h2>高階群組可用模型</h2><div id="standardModels"></div></div><div class="card"><h2>Mini／Nano 可用模型</h2><div id="miniModels"></div></div></section>
+    <details class="card"><summary>查詢 Console</summary><pre id="console">等待查詢</pre></details>
+    <footer>非官方社群工具，與 OpenAI 無隸屬或背書關係。</footer>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>

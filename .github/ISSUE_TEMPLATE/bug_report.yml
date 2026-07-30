@@ -1,0 +1,22 @@
+name: Bug report
+description: 回報可重現的錯誤
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "⚠️ 請勿貼上 Admin API Key、Project Key、Email、Project ID 或未匿名化 JSON。"
+  - type: input
+    id: version
+    attributes: { label: Version, placeholder: "0.1.0-alpha.1" }
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes: { label: 重現步驟 }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: 預期結果 }
+  - type: textarea
+    id: actual
+    attributes: { label: 實際結果 }

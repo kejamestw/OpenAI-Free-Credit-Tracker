@@ -1,0 +1,23 @@
+name: Build Windows release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python -m pip install -r requirements-dev.txt
+      - shell: pwsh
+        run: pyinstaller --noconfirm --clean --onefile --name OpenAI-Free-Credit-Tracker --paths src --add-data "web;web" --add-data "data;data" src/quota_monitor/app.py
+      - shell: pwsh
+        run: Get-FileHash dist/OpenAI-Free-Credit-Tracker.exe -Algorithm SHA256 | ForEach-Object { "$($_.Hash)  OpenAI-Free-Credit-Tracker.exe" } | Set-Content dist/SHA256SUMS.txt
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/OpenAI-Free-Credit-Tracker.exe
+            dist/SHA256SUMS.txt
